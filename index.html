@@ -2,98 +2,619 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Natarajan M – PHP & WordPress Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natarajan M | Senior PHP & WordPress Developer</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --gray: #64748b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      background: #f5f5f5;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f1f5f9;
+      color: #334155;
+      line-height: 1.6;
     }
+    
+    /* Header & Navigation */
+    .navbar {
+      background-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      color: white !important;
+      font-size: 1.5rem;
+    }
+    
+    .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: white !important;
+      transform: translateY(-2px);
+    }
+    
+    .navbar-toggler {
+      border: none;
+    }
+    
+    /* Hero Section */
     .hero {
-      background: #007bff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
-      padding: 60px 20px;
+      padding: 140px 20px 80px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,0 100,100 0,100"/></svg>');
+      background-size: cover;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+    
+    .btn-hero {
+      background-color: var(--accent);
+      border: none;
+      color: var(--dark);
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-hero:hover {
+      background-color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Sections */
     .section {
-      padding: 40px 20px;
+      padding: 80px 20px;
     }
-    .card img {
-      height: 200px;
-      object-fit: cover;
-    }
-    footer {
-      background: #343a40;
-      color: white;
+    
+    .section-title {
       text-align: center;
-      padding: 20px;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: 20px auto 0;
+    }
+    
+    /* Services */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--primary);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+    
+    .service-card ul {
+      padding-left: 20px;
+    }
+    
+    .service-card li {
+      margin-bottom: 8px;
+      color: var(--gray);
+    }
+    
+    /* Projects */
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      margin-bottom: 30px;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 4px solid var(--accent);
+    }
+    
+    .project-content {
+      padding: 25px;
+    }
+    
+    .project-content h3 {
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    
+    .project-content p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    
+    .tech-badge {
+      background: #e0f2fe;
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    /* Contact */
+    .contact-container {
+      background: white;
+      border-radius: 12px;
+      padding: 50px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      margin-top: 30px;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    
+    .contact-icon {
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    
+    .contact-details h3 {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
+    
+    .contact-details p {
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0 30px;
+    }
+    
+    .social-link {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .section {
+        padding: 60px 20px;
+      }
+      
+      .contact-container {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Natarajan M</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <div class="hero">
-    <h1>Natarajan M</h1>
-    <p>💻 15+ Years in PHP, MySQL, Bootstrap, WordPress</p>
-    <a href="https://wa.me/918903689016" class="btn btn-light mt-3">📲 Contact on WhatsApp</a>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Natarajan M</h1>
+      <p>💻 Senior PHP & WordPress Developer with 15+ Years Experience</p>
+      <a href="https://wa.me/918903689016" class="btn btn-hero">
+        <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+      </a>
+    </div>
+  </section>
 
-  <div class="section container">
-    <h2 class="mb-4">📌 Services I Offer</h2>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">✔️ Custom School Website (HTML/PHP/WordPress)</li>
-      <li class="list-group-item">✔️ Admin Panel with CMS (News, Events, Gallery)</li>
-      <li class="list-group-item">✔️ Contact Forms & Online Admission</li>
-      <li class="list-group-item">✔️ Hosting, cPanel, and Domain Setup</li>
-    </ul>
-  </div>
-
-  <div class="section container">
-    <h2 class="mb-4">📸 My Projects</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="https://kalviglobalschool.com/images/logo.png" class="card-img-top" alt="Kalvi School">
-          <div class="card-body">
-            <h5 class="card-title">Kalvi Global School</h5>
-            <p class="card-text">School website with homepage, gallery, contact and admin CMS.</p>
-            <a href="https://kalviglobalschool.com" target="_blank" class="btn btn-primary">View Site</a>
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Services I Offer</h2>
+        <p>Comprehensive web development solutions tailored to your needs</p>
+      </div>
+      
+      <div class="services-container">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
           </div>
+          <h3>Custom School Websites</h3>
+          <ul>
+            <li>HTML/CSS/JavaScript Development</li>
+            <li>PHP & MySQL Backend Solutions</li>
+            <li>WordPress Custom Theme Development</li>
+            <li>Responsive & Mobile-Friendly Design</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Admin Panel & CMS</h3>
+          <ul>
+            <li>Custom Admin Dashboard</li>
+            <li>News & Announcements Management</li>
+            <li>Events Calendar System</li>
+            <li>Photo Gallery Management</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Deployment & Maintenance</h3>
+          <ul>
+            <li>Domain Registration & Setup</li>
+            <li>cPanel & Web Hosting Configuration</li>
+            <li>Email Setup & Configuration</li>
+            <li>Ongoing Maintenance & Support</li>
+          </ul>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="https://kalvischool.com/images/logo.png" class="card-img-top" alt="Kalvi School">
-          <div class="card-body">
-            <h5 class="card-title">Kalvi School</h5>
-            <p class="card-text">WordPress-based education website with custom theme and fast performance.</p>
-            <a href="https://kalvischool.com" target="_blank" class="btn btn-primary">View Site</a>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section bg-light" id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Projects</h2>
+        <p>Showcase of my recent work for educational institutions</p>
+      </div>
+      
+      <div class="row">
+        <!-- Project 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" class="project-img" alt="Kalvi Global School">
+            <div class="project-content">
+              <h3>Kalvi Global School</h3>
+              <p>Complete school website with homepage, gallery, contact forms and admin CMS.</p>
+              
+              <div class="tech-stack">
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              
+              <a href="https://kalviglobalschool.com" target="_blank" class="btn btn-primary">
+                <i class="fas fa-external-link-alt me-2"></i>Visit Website
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="https://kalvischoolmadurai.com/images/logo.png" class="card-img-top" alt="Kalvi Madurai">
-          <div class="card-body">
-            <h5 class="card-title">Kalvi School Madurai</h5>
-            <p class="card-text">Static site developed with Bootstrap 5 and backend CMS in PHP.</p>
-            <a href="https://kalvischoolmadurai.com" target="_blank" class="btn btn-primary">View Site</a>
+        
+        <!-- Project 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" class="project-img" alt="Kalvi School">
+            <div class="project-content">
+              <h3>Kalvi School</h3>
+              <p>WordPress-based education website with custom theme and optimized performance.</p>
+              
+              <div class="tech-stack">
+                <span class="tech-badge">WordPress</span>
+                <span class="tech-badge">Custom Theme</span>
+                <span class="tech-badge">Elementor</span>
+                <span class="tech-badge">WooCommerce</span>
+              </div>
+              
+              <a href="https://kalvischool.com" target="_blank" class="btn btn-primary">
+                <i class="fas fa-external-link-alt me-2"></i>Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" class="project-img" alt="Kalvi School Madurai">
+            <div class="project-content">
+              <h3>Kalvi School Madurai</h3>
+              <p>Static site with Bootstrap 5 and backend CMS in PHP for content management.</p>
+              
+              <div class="tech-stack">
+                <span class="tech-badge">Bootstrap 5</span>
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">jQuery</span>
+                <span class="tech-badge">CMS</span>
+              </div>
+              
+              <a href="https://kalvischoolmadurai.com" target="_blank" class="btn btn-primary">
+                <i class="fas fa-external-link-alt me-2"></i>Visit Website
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section container">
-    <h2 class="mb-4">📬 Contact Me</h2>
-    <p>📞 <strong>Phone:</strong> +91-8903689016</p>
-    <p>📧 <strong>Email:</strong> iconsisonline@yahoo.com</p>
-  </div>
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>Have a project in mind? Let's discuss how I can help you</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <p>+91-8903689016</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p>iconsisonline@yahoo.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="contact-details">
+              <h3>WhatsApp</h3>
+              <p>+91-8903689016</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Natarajan M | PHP/WordPress Developer</p>
+    <div class="container">
+      <h3>Natarajan M</h3>
+      <p>Senior PHP & WordPress Developer</p>
+      
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://wa.me/918903689016" class="social-link">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2025 Natarajan M. All Rights Reserved.</p>
+      </div>
+    </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(37, 99, 235, 0.95)';
+        navbar.style.padding = '0.7rem 2rem';
+      } else {
+        navbar.style.backgroundColor = 'var(--primary)';
+        navbar.style.padding = '1rem 2rem';
+      }
+    });
+  </script>
 </body>
 </html>
